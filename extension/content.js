@@ -367,8 +367,8 @@
     if (railBtn) {
       const isExpanded = !sidebarCollapsed;
       const label = isExpanded
-        ? "Recolher lista de conversas (Alt+B)"
-        : "Mostrar lista de conversas (Alt+B)";
+        ? "Collapse chat sidebar (Alt+B)"
+        : "Show chat sidebar (Alt+B)";
       railBtn.setAttribute("aria-expanded", isExpanded ? "true" : "false");
       railBtn.setAttribute("aria-label", label);
       railBtn.setAttribute("title", label);
@@ -417,8 +417,8 @@
         const sideBtn = document.createElement("button");
         sideBtn.id = "wa-ext-side-collapse";
         sideBtn.type = "button";
-        sideBtn.setAttribute("aria-label", "Recolher conversas (Alt+B)");
-        sideBtn.setAttribute("title", "Recolher conversas (Alt+B)");
+        sideBtn.setAttribute("aria-label", "Collapse sidebar (Alt+B)");
+        sideBtn.setAttribute("title", "Collapse sidebar (Alt+B)");
         sideBtn.innerHTML = ICON_COLLAPSE_SVG;
         sideBtn.addEventListener("click", (e) => {
           e.preventDefault();

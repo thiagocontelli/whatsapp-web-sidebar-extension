@@ -47,17 +47,17 @@
   function renderUI(collapsed, tabCount = null) {
     sidebarCollapsed = Boolean(collapsed);
 
-    statusBadge.textContent = sidebarCollapsed ? "Fechada" : "Aberta";
+    statusBadge.textContent = sidebarCollapsed ? "Hidden" : "Open";
     statusBadge.setAttribute("data-collapsed", sidebarCollapsed ? "true" : "false");
 
-    toggleBtnLabel.textContent = sidebarCollapsed ? "Mostrar conversas" : "Recolher conversas";
+    toggleBtnLabel.textContent = sidebarCollapsed ? "Show sidebar" : "Collapse sidebar";
     toggleBtnIcon.innerHTML = sidebarCollapsed ? SVG_EXPAND : SVG_COLLAPSE;
 
     if (tabCount !== null) {
       connStatus.textContent =
         tabCount > 0
-          ? "Conectado ao WhatsApp Web ativo"
-          : "Preferência salva (abra web.whatsapp.com)";
+          ? "Connected to active WhatsApp Web"
+          : "Saved (open web.whatsapp.com)";
     }
   }
 
