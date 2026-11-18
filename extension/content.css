@@ -1,0 +1,156 @@
+/* ==========================================================================
+   WhatsApp Web Sidebar Toggle — Content Stylesheet (run_at: document_start)
+   Instant Zero-Animation Toggle, Virtualized-List Safe, Dark/Light Native UI
+   ========================================================================== */
+
+:root {
+  --wa-ext-accent: #00a884;
+  --wa-ext-accent-soft: rgba(0, 168, 132, 0.16);
+  --wa-ext-icon-color: var(--panel-header-icon, var(--icon, #54656f));
+  --wa-ext-hover-bg: rgba(11, 20, 26, 0.07);
+}
+
+body.dark,
+html[data-theme="dark"] body {
+  --wa-ext-icon-color: var(--panel-header-icon, var(--icon, #aebac1));
+  --wa-ext-hover-bg: rgba(233, 237, 239, 0.09);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light) {
+    --wa-ext-icon-color: var(--panel-header-icon, var(--icon, #aebac1));
+    --wa-ext-hover-bg: rgba(233, 237, 239, 0.09);
+  }
+}
+
+/* Enforce instant (no-animation) sidebar toggle */
+[data-wa-side-col="true"],
+[data-wa-drawer-col="true"],
+#app .two > div:has(#side),
+#app .three > div:has(#side) {
+  transition: none !important;
+}
+
+/* ==========================================================================
+   1. COLLAPSED MODE (Keep Thin Left Icon Rail Visible, Collapse Chat List)
+   ========================================================================== */
+
+html[data-wa-sidebar-collapsed="true"] [data-wa-side-col="true"],
+html[data-wa-sidebar-collapsed="true"] [data-wa-drawer-col="true"],
+html[data-wa-sidebar-collapsed="true"] #app .two > div:has(#side),
+html[data-wa-sidebar-collapsed="true"] #app .three > div:has(#side) {
+  flex: 0 0 0px !important;
+  width: 0px !important;
+  min-width: 0px !important;
+  max-width: 0px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  border-inline-end: none !important;
+  border-right: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Freeze internal #side min-width so virtualized chat rows never crush/reflow */
+html[data-wa-sidebar-collapsed="true"] #side {
+  min-width: 340px !important;
+}
+
+/* Guarantee the thin left Navigation Rail stays 100% visible and interactive */
+html[data-wa-sidebar-collapsed="true"] [data-wa-nav-rail="true"],
+html[data-wa-sidebar-collapsed="true"] #app .two > div:not([data-wa-side-col="true"]):not([data-wa-drawer-col="true"]):not([data-wa-main-col="true"]):has(> header:not(#side header):not(#main header)),
+html[data-wa-sidebar-collapsed="true"] #app .three > div:not([data-wa-side-col="true"]):not([data-wa-drawer-col="true"]):not([data-wa-main-col="true"]):has(> header:not(#side header):not(#main header)) {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 650 !important;
+}
+
+/* Expand Right Main Column (#main OR Empty State screen) to fill 100% remaining space */
+html[data-wa-sidebar-collapsed="true"] [data-wa-main-col="true"],
+html[data-wa-sidebar-collapsed="true"] #app .two > div:has(#main),
+html[data-wa-sidebar-collapsed="true"] #app .three > div:has(#main) {
+  flex: 1 1 0% !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+html[data-wa-sidebar-collapsed="true"] #main {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ==========================================================================
+   2. INJECTED CONTROLS (Native-Styled Rail Toggle & Side Header Button)
+   ========================================================================== */
+
+.wa-ext-rail-btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 4px 0 6px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(134, 150, 160, 0.18);
+}
+
+#wa-ext-rail-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--wa-ext-icon-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+#wa-ext-rail-toggle:hover {
+  background-color: var(--wa-ext-hover-bg);
+}
+
+#wa-ext-rail-toggle:focus-visible {
+  box-shadow: 0 0 0 2px var(--wa-ext-accent);
+}
+
+html[data-wa-sidebar-collapsed="true"] #wa-ext-rail-toggle {
+  color: var(--wa-ext-accent);
+  background-color: var(--wa-ext-accent-soft);
+}
+
+#wa-ext-side-collapse {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--wa-ext-icon-color);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-inline-start: 4px;
+  padding: 0;
+  flex-shrink: 0;
+  outline: none;
+}
+
+#wa-ext-side-collapse:hover {
+  background-color: var(--wa-ext-hover-bg);
+}
+
+#wa-ext-side-collapse:focus-visible {
+  box-shadow: 0 0 0 2px var(--wa-ext-accent);
+}

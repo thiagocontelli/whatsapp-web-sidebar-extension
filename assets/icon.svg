@@ -1,4 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#e11d48"/>
-  <text x="32" y="32" dy="0.35em" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="32" font-weight="600" fill="#ffffff">W</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <rect width="128" height="128" rx="28" fill="#111B21"/>
+  <rect x="6" y="6" width="116" height="116" rx="23" stroke="#00A884" stroke-width="4" stroke-opacity="0.45"/>
+  <!-- Left sidebar panel -->
+  <rect x="18" y="22" width="34" height="84" rx="10" fill="#00A884"/>
+  <!-- Sidebar chat lines -->
+  <rect x="25" y="34" width="20" height="5" rx="2.5" fill="#111B21" fill-opacity="0.85"/>
+  <rect x="25" y="46" width="16" height="5" rx="2.5" fill="#111B21" fill-opacity="0.7"/>
+  <rect x="25" y="58" width="20" height="5" rx="2.5" fill="#111B21" fill-opacity="0.7"/>
+  <!-- Right chat area -->
+  <rect x="58" y="22" width="52" height="84" rx="10" fill="#202C33"/>
+  <!-- Collapse chevron arrow pointing left -->
+  <path d="M88 50L74 64L88 78" stroke="#00A884" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
