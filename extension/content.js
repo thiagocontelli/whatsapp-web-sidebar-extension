@@ -26,6 +26,20 @@
   let lastKeyboardSource = null;
   let lastKeyboardTime = 0;
 
+  function t(key, fallback) {
+    try {
+      if (typeof chrome !== "undefined" && chrome.runtime?.id && chrome.i18n?.getMessage) {
+        const msg = chrome.i18n.getMessage(key);
+        if (msg) {
+          return msg;
+        }
+      }
+    } catch (_) {
+      // Fallback safely if extension context was invalidated
+    }
+    return fallback;
+  }
+
   const ICON_COLLAPSE_SVG = `
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect x="3" y="4" width="18" height="16" rx="2.5"></rect>
@@ -181,7 +195,7 @@
       }
       if (
         h.querySelector(
-          '[aria-label="Conversas"], [aria-label="Chats"], [aria-label="Status"], [aria-label="Configurações"], [aria-label="Settings"], [data-icon*="chat"], [data-icon*="settings"]'
+          '[aria-label="Conversas"], [aria-label="Chats"], [aria-label="Status"], [aria-label="Estados"], [aria-label="Configurações"], [aria-label="Configuración"], [aria-label="Ajustes"], [aria-label="Settings"], [data-icon*="chat"], [data-icon*="settings"]'
         )
       ) {
         return h;
@@ -367,8 +381,8 @@
     if (railBtn) {
       const isExpanded = !sidebarCollapsed;
       const label = isExpanded
-        ? "Collapse chat sidebar (Alt+B)"
-        : "Show chat sidebar (Alt+B)";
+        ? t("tooltipCollapseRail", "Collapse chat sidebar (Alt+B)")
+        : t("tooltipShowRail", "Show chat sidebar (Alt+B)");
       railBtn.setAttribute("aria-expanded", isExpanded ? "true" : "false");
       railBtn.setAttribute("aria-label", label);
       railBtn.setAttribute("title", label);
@@ -417,8 +431,9 @@
         const sideBtn = document.createElement("button");
         sideBtn.id = "wa-ext-side-collapse";
         sideBtn.type = "button";
-        sideBtn.setAttribute("aria-label", "Collapse sidebar (Alt+B)");
-        sideBtn.setAttribute("title", "Collapse sidebar (Alt+B)");
+        const collapseTip = t("tooltipCollapseSide", "Collapse sidebar (Alt+B)");
+        sideBtn.setAttribute("aria-label", collapseTip);
+        sideBtn.setAttribute("title", collapseTip);
         sideBtn.innerHTML = ICON_COLLAPSE_SVG;
         sideBtn.addEventListener("click", (e) => {
           e.preventDefault();

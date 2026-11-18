@@ -1,0 +1,53 @@
+{
+  "extName": {
+    "message": "WhatsApp Web Sidebar Toggle"
+  },
+  "extDescription": {
+    "message": "Collapse and expand the WhatsApp Web chat sidebar with a single click or Alt+B, keeping the left icon rail visible."
+  },
+  "actionTitle": {
+    "message": "Toggle WhatsApp Web Sidebar (Alt+B)"
+  },
+  "cmdToggleSidebar": {
+    "message": "Collapse or expand the chat sidebar"
+  },
+  "popupTitle": {
+    "message": "WhatsApp Sidebar"
+  },
+  "popupSubtitle": {
+    "message": "Focus & privacy mode"
+  },
+  "statusOpen": {
+    "message": "Open"
+  },
+  "statusHidden": {
+    "message": "Hidden"
+  },
+  "btnCollapse": {
+    "message": "Collapse sidebar"
+  },
+  "btnShow": {
+    "message": "Show sidebar"
+  },
+  "shortcutHint": {
+    "message": "Quick shortcut"
+  },
+  "statusReady": {
+    "message": "Ready for WhatsApp Web"
+  },
+  "statusConnected": {
+    "message": "Connected to active WhatsApp Web"
+  },
+  "statusSaved": {
+    "message": "Saved (open web.whatsapp.com)"
+  },
+  "tooltipCollapseRail": {
+    "message": "Collapse chat sidebar (Alt+B)"
+  },
+  "tooltipShowRail": {
+    "message": "Show chat sidebar (Alt+B)"
+  },
+  "tooltipCollapseSide": {
+    "message": "Collapse sidebar (Alt+B)"
+  }
+}

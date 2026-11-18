@@ -36,6 +36,7 @@ By default, **WhatsApp Web** keeps the conversation list sidebar permanently ope
 - **Zero-Flash State Persistence**: Remembers whether the sidebar was open or collapsed across reloads (`F5`) and browser restarts, applying the layout at `document_start` before the first paint.
 - **Minimalist Popup**: Quick toggle and live status indicator right from the browser toolbar, synced in real time across tabs.
 - **Smart Navigation Rail Handling**: Clicking *Status*, *Communities*, *Settings*, or *Profile* on the left icon rail while collapsed automatically reopens the sidebar panel.
+- **Automatic Localization (i18n)**: Automatically detects your browser language — built-in support for **English**, **Brazilian Portuguese (`pt-BR`)**, and **Spanish (`es`)**.
 - **Zero Dependencies & 100% Private**: Pure Vanilla JS + CSS, no build step required, no trackers, no external network calls, and only the minimal `storage` permission scoped to `https://web.whatsapp.com/*`.
 
 ---
@@ -73,6 +74,7 @@ Compatible with **Google Chrome**, **Microsoft Edge**, **Brave**, **Opera**, **V
 ├── dist/
 │   └── whatsapp-web-sidebar-toggle.zip   # Ready-to-distribute extension archive
 ├── extension/                            # Unpacked Manifest V3 extension directory
+│   ├── _locales/                         # Native Chrome i18n (en, pt_BR, es)
 │   ├── icons/                            # PNG icons (16, 32, 48, 128px)
 │   ├── manifest.json                     # Manifest V3 configuration
 │   ├── background.js                     # Service Worker (global Alt+B command & badge)

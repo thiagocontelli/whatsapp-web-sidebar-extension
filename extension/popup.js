@@ -1,6 +1,6 @@
 /**
  * Popup Controller — WhatsApp Web Sidebar Toggle
- * Synchronizes bidirectionally with chrome.storage.local and active WhatsApp Web tab(s).
+ * Synchronizes bidirectionally with chrome.storage.local, active WhatsApp Web tab(s), and chrome.i18n.
  */
 
 (() => {
@@ -32,6 +32,31 @@
 
   let sidebarCollapsed = false;
 
+  function t(key, fallback) {
+    try {
+      const msg = chrome?.i18n?.getMessage?.(key);
+      return msg || fallback;
+    } catch (_) {
+      return fallback;
+    }
+  }
+
+  function localizeStaticElements() {
+    try {
+      const uiLang = chrome?.i18n?.getUILanguage?.();
+      if (uiLang) {
+        document.documentElement.lang = uiLang;
+      }
+    } catch (_) {}
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (key) {
+        el.textContent = t(key, el.textContent);
+      }
+    });
+  }
+
   async function findWhatsAppTabs() {
     const activeWa = await chrome.tabs.query({
       active: true,
@@ -47,17 +72,21 @@
   function renderUI(collapsed, tabCount = null) {
     sidebarCollapsed = Boolean(collapsed);
 
-    statusBadge.textContent = sidebarCollapsed ? "Hidden" : "Open";
+    statusBadge.textContent = sidebarCollapsed
+      ? t("statusHidden", "Hidden")
+      : t("statusOpen", "Open");
     statusBadge.setAttribute("data-collapsed", sidebarCollapsed ? "true" : "false");
 
-    toggleBtnLabel.textContent = sidebarCollapsed ? "Show sidebar" : "Collapse sidebar";
+    toggleBtnLabel.textContent = sidebarCollapsed
+      ? t("btnShow", "Show sidebar")
+      : t("btnCollapse", "Collapse sidebar");
     toggleBtnIcon.innerHTML = sidebarCollapsed ? SVG_EXPAND : SVG_COLLAPSE;
 
     if (tabCount !== null) {
       connStatus.textContent =
         tabCount > 0
-          ? "Connected to active WhatsApp Web"
-          : "Saved (open web.whatsapp.com)";
+          ? t("statusConnected", "Connected to active WhatsApp Web")
+          : t("statusSaved", "Saved (open web.whatsapp.com)");
     }
   }
 
@@ -90,6 +119,7 @@
   });
 
   async function init() {
+    localizeStaticElements();
     const stored = await chrome.storage.local.get(DEFAULT_SETTINGS);
     const tabs = await findWhatsAppTabs();
     renderUI(Boolean(stored.sidebarCollapsed), tabs.length);

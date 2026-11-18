@@ -1,0 +1,53 @@
+{
+  "extName": {
+    "message": "WhatsApp Web Sidebar Toggle"
+  },
+  "extDescription": {
+    "message": "Feche e abra a barra lateral de conversas do WhatsApp Web com um clique ou Alt+B, mantendo a barra de ícones visível."
+  },
+  "actionTitle": {
+    "message": "Alternar Sidebar do WhatsApp Web (Alt+B)"
+  },
+  "cmdToggleSidebar": {
+    "message": "Recolher ou mostrar a barra lateral de conversas"
+  },
+  "popupTitle": {
+    "message": "Sidebar WhatsApp"
+  },
+  "popupSubtitle": {
+    "message": "Modo foco & privacidade"
+  },
+  "statusOpen": {
+    "message": "Aberta"
+  },
+  "statusHidden": {
+    "message": "Fechada"
+  },
+  "btnCollapse": {
+    "message": "Recolher conversas"
+  },
+  "btnShow": {
+    "message": "Mostrar conversas"
+  },
+  "shortcutHint": {
+    "message": "Atalho rápido"
+  },
+  "statusReady": {
+    "message": "Pronto para o WhatsApp Web"
+  },
+  "statusConnected": {
+    "message": "Conectado ao WhatsApp Web ativo"
+  },
+  "statusSaved": {
+    "message": "Preferência salva (abra web.whatsapp.com)"
+  },
+  "tooltipCollapseRail": {
+    "message": "Recolher lista de conversas (Alt+B)"
+  },
+  "tooltipShowRail": {
+    "message": "Mostrar lista de conversas (Alt+B)"
+  },
+  "tooltipCollapseSide": {
+    "message": "Recolher conversas (Alt+B)"
+  }
+}

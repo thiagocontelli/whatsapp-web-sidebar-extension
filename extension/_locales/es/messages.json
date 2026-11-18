@@ -1,0 +1,53 @@
+{
+  "extName": {
+    "message": "WhatsApp Web Sidebar Toggle"
+  },
+  "extDescription": {
+    "message": "Oculta y muestra la barra lateral de chats de WhatsApp Web con un clic o Alt+B, manteniendo visible la barra de iconos."
+  },
+  "actionTitle": {
+    "message": "Alternar barra lateral de WhatsApp Web (Alt+B)"
+  },
+  "cmdToggleSidebar": {
+    "message": "Ocultar o mostrar la barra lateral de chats"
+  },
+  "popupTitle": {
+    "message": "Barra de WhatsApp"
+  },
+  "popupSubtitle": {
+    "message": "Modo enfoque y privacidad"
+  },
+  "statusOpen": {
+    "message": "Abierta"
+  },
+  "statusHidden": {
+    "message": "Oculta"
+  },
+  "btnCollapse": {
+    "message": "Ocultar chats"
+  },
+  "btnShow": {
+    "message": "Mostrar chats"
+  },
+  "shortcutHint": {
+    "message": "Atajo rápido"
+  },
+  "statusReady": {
+    "message": "Listo para WhatsApp Web"
+  },
+  "statusConnected": {
+    "message": "Conectado a WhatsApp Web activo"
+  },
+  "statusSaved": {
+    "message": "Guardado (abre web.whatsapp.com)"
+  },
+  "tooltipCollapseRail": {
+    "message": "Ocultar lista de chats (Alt+B)"
+  },
+  "tooltipShowRail": {
+    "message": "Mostrar lista de chats (Alt+B)"
+  },
+  "tooltipCollapseSide": {
+    "message": "Ocultar chats (Alt+B)"
+  }
+}
